@@ -1,4 +1,9 @@
 # Password Manager
+## Purpose
+Password manager allows you to use distinct passwords for all services you use without having the need to save them locally.
+They will be derived from one master password and a public tag (which identifies the service).
+
+## User interface
 ![Main Window](main_window.png)
 
 **Passphrase**: The passphrase to use.
@@ -15,6 +20,7 @@
 
 **Symbols**: Controls whether the password should contain symbols.
 
+**Copy password to clipboard**: Generates the password and copies it to clipboard.
 
 ## Requirements
 [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345)
