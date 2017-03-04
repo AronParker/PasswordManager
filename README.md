@@ -1,19 +1,19 @@
 # Password Manager
 ![Main Window](main_window.png)
 
-*Passphrase*: The passphrase to use
+**Passphrase**: The passphrase to use.
 
-*Tag*: A tag for any particular application/service/website
+**Tag**: A tag for any particular application/service/website.
 
-*Password length*: Length of the password to generate
+**Password length**: Length of the password to generate.
 
-*Lowercase letters*: Controls whether the password should contain lowercase letters
+**Lowercase letters**: Controls whether the password should contain lowercase letters.
 
-*Uppercase letters*: Controls whether the password should contain uppercase letters
+**Uppercase letters**: Controls whether the password should contain uppercase letters.
 
-*Numbers*: Controls whether the password should contain lowercase letters
+**Numbers**: Controls whether the password should contain lowercase letters.
 
-*Symbols*: Controls whether the password should contain symbols
+**Symbols**: Controls whether the password should contain symbols.
 
 
 ## Requirements
