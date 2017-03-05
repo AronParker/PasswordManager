@@ -36,10 +36,9 @@
             this._lengthNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this._copyButton = new System.Windows.Forms.Button();
             this._characterSetLabel = new System.Windows.Forms.Label();
-            this._characterSetTextBox = new System.Windows.Forms.TextBox();
-            this._characterSetButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this._showPassphraseCheckBox = new System.Windows.Forms.CheckBox();
+            this._characterSetComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this._lengthNumericUpDown)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,46 +56,46 @@
             // 
             this._passphraseTextBox.Location = new System.Drawing.Point(98, 12);
             this._passphraseTextBox.Name = "_passphraseTextBox";
-            this._passphraseTextBox.Size = new System.Drawing.Size(300, 23);
+            this._passphraseTextBox.Size = new System.Drawing.Size(250, 23);
             this._passphraseTextBox.TabIndex = 1;
             this._passphraseTextBox.UseSystemPasswordChar = true;
             // 
             // _tagLabel
             // 
-            this._tagLabel.Location = new System.Drawing.Point(12, 41);
+            this._tagLabel.Location = new System.Drawing.Point(354, 12);
             this._tagLabel.Name = "_tagLabel";
-            this._tagLabel.Size = new System.Drawing.Size(80, 23);
+            this._tagLabel.Size = new System.Drawing.Size(30, 23);
             this._tagLabel.TabIndex = 2;
             this._tagLabel.Text = "Tag:";
             this._tagLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // _tagTextBox
             // 
-            this._tagTextBox.Location = new System.Drawing.Point(98, 41);
+            this._tagTextBox.Location = new System.Drawing.Point(390, 12);
             this._tagTextBox.Name = "_tagTextBox";
-            this._tagTextBox.Size = new System.Drawing.Size(300, 23);
+            this._tagTextBox.Size = new System.Drawing.Size(150, 23);
             this._tagTextBox.TabIndex = 3;
             // 
             // _lengthLabel
             // 
-            this._lengthLabel.Location = new System.Drawing.Point(12, 128);
+            this._lengthLabel.Location = new System.Drawing.Point(354, 41);
             this._lengthLabel.Name = "_lengthLabel";
-            this._lengthLabel.Size = new System.Drawing.Size(80, 23);
-            this._lengthLabel.TabIndex = 7;
-            this._lengthLabel.Text = "Length:";
+            this._lengthLabel.Size = new System.Drawing.Size(100, 23);
+            this._lengthLabel.TabIndex = 6;
+            this._lengthLabel.Text = "Password length:";
             this._lengthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // _lengthNumericUpDown
             // 
-            this._lengthNumericUpDown.Location = new System.Drawing.Point(98, 128);
+            this._lengthNumericUpDown.Location = new System.Drawing.Point(460, 41);
             this._lengthNumericUpDown.Maximum = new decimal(new int[] {
             256,
             0,
             0,
             0});
             this._lengthNumericUpDown.Name = "_lengthNumericUpDown";
-            this._lengthNumericUpDown.Size = new System.Drawing.Size(60, 23);
-            this._lengthNumericUpDown.TabIndex = 8;
+            this._lengthNumericUpDown.Size = new System.Drawing.Size(80, 23);
+            this._lengthNumericUpDown.TabIndex = 7;
             this._lengthNumericUpDown.Value = new decimal(new int[] {
             16,
             0,
@@ -106,39 +105,23 @@
             // _copyButton
             // 
             this._copyButton.Image = global::PasswordManager.Properties.Resources.key;
-            this._copyButton.Location = new System.Drawing.Point(248, 12);
+            this._copyButton.Location = new System.Drawing.Point(390, 12);
             this._copyButton.Name = "_copyButton";
             this._copyButton.Size = new System.Drawing.Size(150, 26);
             this._copyButton.TabIndex = 0;
             this._copyButton.Text = "Copy password";
             this._copyButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this._copyButton.UseVisualStyleBackColor = true;
+            this._copyButton.Click += new System.EventHandler(this.CopyButton_Click);
             // 
             // _characterSetLabel
             // 
-            this._characterSetLabel.Location = new System.Drawing.Point(12, 70);
+            this._characterSetLabel.Location = new System.Drawing.Point(12, 41);
             this._characterSetLabel.Name = "_characterSetLabel";
             this._characterSetLabel.Size = new System.Drawing.Size(80, 23);
             this._characterSetLabel.TabIndex = 4;
             this._characterSetLabel.Text = "Character set:";
             this._characterSetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // _characterSetTextBox
-            // 
-            this._characterSetTextBox.Location = new System.Drawing.Point(98, 70);
-            this._characterSetTextBox.Multiline = true;
-            this._characterSetTextBox.Name = "_characterSetTextBox";
-            this._characterSetTextBox.Size = new System.Drawing.Size(224, 52);
-            this._characterSetTextBox.TabIndex = 5;
-            // 
-            // _characterSetButton
-            // 
-            this._characterSetButton.Location = new System.Drawing.Point(328, 70);
-            this._characterSetButton.Name = "_characterSetButton";
-            this._characterSetButton.Size = new System.Drawing.Size(70, 52);
-            this._characterSetButton.TabIndex = 6;
-            this._characterSetButton.Text = "Change...";
-            this._characterSetButton.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -146,10 +129,10 @@
             this.panel1.Controls.Add(this._showPassphraseCheckBox);
             this.panel1.Controls.Add(this._copyButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 157);
+            this.panel1.Location = new System.Drawing.Point(0, 76);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(410, 50);
-            this.panel1.TabIndex = 9;
+            this.panel1.Size = new System.Drawing.Size(552, 50);
+            this.panel1.TabIndex = 8;
             // 
             // _showPassphraseCheckBox
             // 
@@ -161,18 +144,37 @@
             this._showPassphraseCheckBox.UseVisualStyleBackColor = true;
             this._showPassphraseCheckBox.CheckedChanged += new System.EventHandler(this.ShowPassphraseCheckBox_CheckedChanged);
             // 
+            // _characterSetComboBox
+            // 
+            this._characterSetComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._characterSetComboBox.FormattingEnabled = true;
+            this._characterSetComboBox.Items.AddRange(new object[] {
+            "Numbers",
+            "Lowercase alphabet",
+            "Uppercase alphabet",
+            "Symbols",
+            "Alphabet",
+            "Alphabet + Symbols",
+            "Alphabet + Symbols + Space",
+            "Alphanumeric",
+            "Alphanumeric + Symbols",
+            "Alphanumeric + Symbols + Space"});
+            this._characterSetComboBox.Location = new System.Drawing.Point(98, 41);
+            this._characterSetComboBox.Name = "_characterSetComboBox";
+            this._characterSetComboBox.Size = new System.Drawing.Size(250, 23);
+            this._characterSetComboBox.TabIndex = 5;
+            // 
             // MainForm
             // 
             this.AcceptButton = this._copyButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(410, 207);
+            this.ClientSize = new System.Drawing.Size(552, 126);
+            this.Controls.Add(this._characterSetComboBox);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this._characterSetButton);
             this.Controls.Add(this._lengthNumericUpDown);
             this.Controls.Add(this._lengthLabel);
-            this.Controls.Add(this._characterSetTextBox);
             this.Controls.Add(this._characterSetLabel);
             this.Controls.Add(this._tagTextBox);
             this.Controls.Add(this._tagLabel);
@@ -202,10 +204,9 @@
         private System.Windows.Forms.NumericUpDown _lengthNumericUpDown;
         private System.Windows.Forms.Button _copyButton;
         private System.Windows.Forms.Label _characterSetLabel;
-        private System.Windows.Forms.TextBox _characterSetTextBox;
-        private System.Windows.Forms.Button _characterSetButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox _showPassphraseCheckBox;
+        private System.Windows.Forms.ComboBox _characterSetComboBox;
     }
 }
 

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using PasswordManager.Forms;
-using System.Linq;
-using PasswordManager.Controller;
 
 namespace PasswordManager
 {
@@ -13,9 +11,7 @@ namespace PasswordManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            var controller = new MainFormController();
-            controller.Run();
+            Application.Run(new MainForm());
         }
     }
 }
