@@ -4,7 +4,7 @@ Password manager allows you to use distinct passwords for all services you use w
 They will be derived from one master password and a public tag (which identifies the service).
 
 ## User interface
-![Main Window](main_window.png)
+![Main Window](images/main-window.png)
 
 **Passphrase**: The passphrase to use.
 
