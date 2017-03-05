@@ -1,9 +1,11 @@
-# Password Manager
-## Purpose
+# Purpose
 Password manager allows you to use distinct passwords for all services you use without having the need to save them locally.
 They will be derived from one master password and a public tag (which identifies the service).
 
-## User interface
+# Download
+[Latest release](https://github.com/AronParker/PasswordManager/releases) (Requires: [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345))
+
+# User interface
 ![Main Window](images/main-window.png)
 
 **Passphrase**: The passphrase to use.
@@ -21,12 +23,12 @@ They will be derived from one master password and a public tag (which identifies
 
 **Password length**: Length of the password to generate.
 
+**Show passphrase**: Display the passphrase in the text box, otherwise it'll use the default password character.
+
 **Copy password**: Generates the password and copies it to clipboard.
 
-## Cryptography
+# Cryptography
 In order to derive the password the program uses the following algorithm:
 
 **tls-prf**(*secret:* **hmacsha256**(*key:* "secret", passphrase), *seed:* **hmacsha256**(*key:* "tag", tag));
 
-## Requirements
-[.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345)
