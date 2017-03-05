@@ -148,17 +148,6 @@
             // 
             this._characterSetComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._characterSetComboBox.FormattingEnabled = true;
-            this._characterSetComboBox.Items.AddRange(new object[] {
-            "Numbers",
-            "Lowercase alphabet",
-            "Uppercase alphabet",
-            "Symbols",
-            "Alphabet",
-            "Alphabet + Symbols",
-            "Alphabet + Symbols + Space",
-            "Alphanumeric",
-            "Alphanumeric + Symbols",
-            "Alphanumeric + Symbols + Space"});
             this._characterSetComboBox.Location = new System.Drawing.Point(98, 41);
             this._characterSetComboBox.Name = "_characterSetComboBox";
             this._characterSetComboBox.Size = new System.Drawing.Size(250, 23);
