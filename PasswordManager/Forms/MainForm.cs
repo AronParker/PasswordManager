@@ -1,77 +1,45 @@
 ﻿using System;
 using System.Windows.Forms;
 using PasswordManager.Security;
+using PasswordManager.CharacterSets;
 
 namespace PasswordManager.Forms
 {
     public partial class MainForm : Form
     {
-        private PasswordBuilder _passwordBuilder;
-        private bool _passphraseChanged;
+        private PasswordBuilder _builder;
+        private string _lastPassphrase;
 
         public MainForm()
         {
             InitializeComponent();
 
-            _passwordBuilder = new PasswordBuilder();
+            _builder = new PasswordBuilder();
+            _characterSetComboBox.DataSource = new ICharacterSet[] { new Alphabet(),
+                                                                     new Alphanumeric(),
+                                                                     new AlphanumericSymbols(),
+                                                                     new AlphanumericSymbolsSpace() };
+            _characterSetComboBox.DisplayMember = "Name";
+            _characterSetComboBox.ValueMember = "CharacterSet";
+            _characterSetComboBox.SelectedIndex = 2;
         }
 
-        private void PassphraseTextBox_TextChanged(object sender, EventArgs e)
+        private void ShowPassphraseCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            _passphraseChanged = true;
-        }
-
-        private void ShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            _passphraseTextBox.UseSystemPasswordChar = !_showPasswordCheckBox.Checked;
-        }
-
-        private void ShowTagCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            _tagTextBox.UseSystemPasswordChar = !_showTagCheckBox.Checked;
+            _passphraseTextBox.UseSystemPasswordChar = !_showPassphraseCheckBox.Checked;
         }
 
         private void CopyButton_Click(object sender, EventArgs e)
         {
-            if (_passphraseChanged)
+            if (_passphraseTextBox.Text != _lastPassphrase)
             {
-                _passwordBuilder.Passphrase = _passphraseTextBox.Text;
-                _passphraseChanged = false;
-            }
-
-            var characterSet = GetCharacterSet();
-
-            if (characterSet == null)
-            {
-                MessageBox.Show("You must check at least one set of characters.", "No character sets checked", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                _builder.Passphrase = _passphraseTextBox.Text;
+                _lastPassphrase = _passphraseTextBox.Text;
             }
             
-            var password = _passwordBuilder.GetPassword(_tagTextBox.Text, characterSet, (int)_lengthNumericUpDown.Value);
-            
+            var password = _builder.GetPassword(_tagTextBox.Text, (string)_characterSetComboBox.SelectedValue, (int)_lengthNumericUpDown.Value);
+
             Clipboard.SetText(password);
-        }
-
-        private string GetCharacterSet()
-        {
-            CharacterGroups groups = 0;
-
-            if (_lowercaseLettersCheckBox.Checked)
-                groups |= CharacterGroups.LowercaseLetters;
-
-            if (_uppercaseLettersCheckBox.Checked)
-                groups |= CharacterGroups.UppercaseLetters;
-
-            if (_numbersCheckBox.Checked)
-                groups |= CharacterGroups.Numbers;
-
-            if (_symbolsCheckBox.Checked)
-                groups |= CharacterGroups.SpecialCharacters;
-
-            if (groups != 0)
-                return CharacterSets.Get(groups);
-
-            return null;
         }
     }
 }
