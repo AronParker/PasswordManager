@@ -67,7 +67,7 @@
             this._tagLabel.Size = new System.Drawing.Size(30, 23);
             this._tagLabel.TabIndex = 2;
             this._tagLabel.Text = "Tag:";
-            this._tagLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this._tagLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // _tagTextBox
             // 
@@ -83,7 +83,7 @@
             this._lengthLabel.Size = new System.Drawing.Size(100, 23);
             this._lengthLabel.TabIndex = 6;
             this._lengthLabel.Text = "Password length:";
-            this._lengthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this._lengthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // _lengthNumericUpDown
             // 
